@@ -51,7 +51,7 @@ const BestFeatures = () => {
       icon: <FaBell className="text-orange-500" />,
       title: 'Notifications',
       detail:
-        'Automatic notifications and alerts for missed classes to both students and teachers.',
+        'Automatic notifications and alert for missed classes to both students and teachers.',
       bgColor: 'bg-orange-100',
     },
     {
