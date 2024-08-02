@@ -3,6 +3,7 @@
 import Student from '@/app/models/student'
 import Teacher from '@/app/models/teacher'
 import { dbConnect, dbDisconnect } from '@/app/util/db'
+import Course from '../models/course'
 
 export async function addStudent(formData) {
   try {
@@ -89,6 +90,24 @@ export async function removeTeacher(id) {
   } catch (error) {
     console.error('Failed to remove teacher:', error)
     return { error: 'Failed to remove teacher!', status: 500 }
+  } finally {
+    dbDisconnect()
+  }
+}
+
+export async function addCourse(formData) {
+  try {
+    await dbConnect()
+    const newCourse = await Course.create(formData)
+
+    return {
+      message: 'Course added successfully!',
+      status: 200,
+      id: newCourse._id.toString(),
+    }
+  } catch (error) {
+    console.error('Failed to add course:', error)
+    return { error: 'Failed to add course!', status: 500 }
   } finally {
     dbDisconnect()
   }

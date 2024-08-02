@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
       <aside className="flex-none">
         <SideNav links={links} text="Teachers Panel" colors={colors} />
       </aside>
-      <main className="m-4 flex-grow rounded-md border p-5 md:overflow-y-auto">
+      <main className="m-4 flex-grow overflow-y-auto rounded-md border p-5 xl:overflow-y-hidden">
         {children}
       </main>
     </div>
